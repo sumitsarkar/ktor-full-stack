@@ -1,10 +1,15 @@
-package me.sumit.uptime.api.sites
+package me.sumit.uptime.api.monitors
 
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
-import me.sumit.uptime.database.generated.tables.references.MONITOR
-import org.jooq.DSLContext
+class MonitorService {
+    fun createMonitor() {
 
-class Sites {
+    }
 
+    fun deleteMonitor() {
+
+    }
+
+    fun modifyMonitor() {
+
+    }
 }

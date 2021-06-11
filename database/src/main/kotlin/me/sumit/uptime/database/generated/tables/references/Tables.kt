@@ -4,10 +4,690 @@
 package me.sumit.uptime.database.generated.tables.references
 
 
+import java.time.OffsetDateTime
+
+import me.sumit.uptime.database.generated.tables.AddDataNode
+import me.sumit.uptime.database.generated.tables.AddDimension
+import me.sumit.uptime.database.generated.tables.AlterJob
+import me.sumit.uptime.database.generated.tables.AttachDataNode
+import me.sumit.uptime.database.generated.tables.ChunkCompressionStats
+import me.sumit.uptime.database.generated.tables.ChunksDetailedSize
+import me.sumit.uptime.database.generated.tables.CreateDistributedHypertable
+import me.sumit.uptime.database.generated.tables.CreateDistributedRestorePoint
+import me.sumit.uptime.database.generated.tables.CreateHypertable
+import me.sumit.uptime.database.generated.tables.DropChunks
+import me.sumit.uptime.database.generated.tables.HypertableCompressionStats
+import me.sumit.uptime.database.generated.tables.HypertableDetailedSize
 import me.sumit.uptime.database.generated.tables.Monitor
 import me.sumit.uptime.database.generated.tables.MonitorTypes
+import me.sumit.uptime.database.generated.tables.ShowChunks
+import me.sumit.uptime.database.generated.tables.ShowTablespaces
+import me.sumit.uptime.database.generated.tables.records.AddDataNodeRecord
+import me.sumit.uptime.database.generated.tables.records.AddDimensionRecord
+import me.sumit.uptime.database.generated.tables.records.AlterJobRecord
+import me.sumit.uptime.database.generated.tables.records.AttachDataNodeRecord
+import me.sumit.uptime.database.generated.tables.records.ChunkCompressionStatsRecord
+import me.sumit.uptime.database.generated.tables.records.ChunksDetailedSizeRecord
+import me.sumit.uptime.database.generated.tables.records.CreateDistributedHypertableRecord
+import me.sumit.uptime.database.generated.tables.records.CreateDistributedRestorePointRecord
+import me.sumit.uptime.database.generated.tables.records.CreateHypertableRecord
+import me.sumit.uptime.database.generated.tables.records.DropChunksRecord
+import me.sumit.uptime.database.generated.tables.records.HypertableCompressionStatsRecord
+import me.sumit.uptime.database.generated.tables.records.HypertableDetailedSizeRecord
+import me.sumit.uptime.database.generated.tables.records.ShowChunksRecord
+import me.sumit.uptime.database.generated.tables.records.ShowTablespacesRecord
+
+import org.jooq.Configuration
+import org.jooq.Field
+import org.jooq.Result
+import org.jooq.types.YearToSecond
 
 
+
+/**
+ * The table <code>public.add_data_node</code>.
+ */
+val ADD_DATA_NODE = AddDataNode.ADD_DATA_NODE
+
+/**
+ * Call <code>public.add_data_node</code>.
+ */
+fun ADD_DATA_NODE(
+      configuration: Configuration
+    , nodeName: String?
+    , host: String?
+    , database: String?
+    , port: Int?
+    , ifNotExists: Boolean?
+    , bootstrap: Boolean?
+    , password: String?
+): Result<AddDataNodeRecord> = configuration.dsl().selectFrom(me.sumit.uptime.database.generated.tables.AddDataNode.ADD_DATA_NODE.call(
+      nodeName
+    , host
+    , database
+    , port
+    , ifNotExists
+    , bootstrap
+    , password
+)).fetch()
+
+/**
+ * Get <code>public.add_data_node</code> as a table.
+ */
+fun ADD_DATA_NODE(
+      nodeName: String?
+    , host: String?
+    , database: String?
+    , port: Int?
+    , ifNotExists: Boolean?
+    , bootstrap: Boolean?
+    , password: String?
+): AddDataNode = me.sumit.uptime.database.generated.tables.AddDataNode.ADD_DATA_NODE.call(
+      nodeName
+    , host
+    , database
+    , port
+    , ifNotExists
+    , bootstrap
+    , password
+)
+
+/**
+ * Get <code>public.add_data_node</code> as a table.
+ */
+fun ADD_DATA_NODE(
+      nodeName: Field<String?>
+    , host: Field<String?>
+    , database: Field<String?>
+    , port: Field<Int?>
+    , ifNotExists: Field<Boolean?>
+    , bootstrap: Field<Boolean?>
+    , password: Field<String?>
+): AddDataNode = me.sumit.uptime.database.generated.tables.AddDataNode.ADD_DATA_NODE.call(
+      nodeName
+    , host
+    , database
+    , port
+    , ifNotExists
+    , bootstrap
+    , password
+)
+
+/**
+ * The table <code>public.add_dimension</code>.
+ */
+val ADD_DIMENSION = AddDimension.ADD_DIMENSION
+@Deprecated(message = "Unknown data type. Please define an explicit org.jooq.Binding to specify how this type should be handled. Deprecation can be turned off using <deprecationOnUnknownTypes/> in your code generator configuration.")
+fun ADD_DIMENSION(
+      configuration: Configuration
+    , hypertable: Any?
+    , columnName: String?
+    , numberPartitions: Int?
+    , chunkTimeInterval: Any?
+    , partitioningFunc: String?
+    , ifNotExists: Boolean?
+): Result<AddDimensionRecord> = configuration.dsl().selectFrom(me.sumit.uptime.database.generated.tables.AddDimension.ADD_DIMENSION.call(
+      hypertable
+    , columnName
+    , numberPartitions
+    , chunkTimeInterval
+    , partitioningFunc
+    , ifNotExists
+)).fetch()
+@Deprecated(message = "Unknown data type. Please define an explicit org.jooq.Binding to specify how this type should be handled. Deprecation can be turned off using <deprecationOnUnknownTypes/> in your code generator configuration.")
+fun ADD_DIMENSION(
+      hypertable: Any?
+    , columnName: String?
+    , numberPartitions: Int?
+    , chunkTimeInterval: Any?
+    , partitioningFunc: String?
+    , ifNotExists: Boolean?
+): AddDimension = me.sumit.uptime.database.generated.tables.AddDimension.ADD_DIMENSION.call(
+      hypertable
+    , columnName
+    , numberPartitions
+    , chunkTimeInterval
+    , partitioningFunc
+    , ifNotExists
+)
+@Deprecated(message = "Unknown data type. Please define an explicit org.jooq.Binding to specify how this type should be handled. Deprecation can be turned off using <deprecationOnUnknownTypes/> in your code generator configuration.")
+fun ADD_DIMENSION(
+      hypertable: Field<Any?>
+    , columnName: Field<String?>
+    , numberPartitions: Field<Int?>
+    , chunkTimeInterval: Field<Any?>
+    , partitioningFunc: Field<String?>
+    , ifNotExists: Field<Boolean?>
+): AddDimension = me.sumit.uptime.database.generated.tables.AddDimension.ADD_DIMENSION.call(
+      hypertable
+    , columnName
+    , numberPartitions
+    , chunkTimeInterval
+    , partitioningFunc
+    , ifNotExists
+)
+
+/**
+ * The table <code>public.alter_job</code>.
+ */
+val ALTER_JOB = AlterJob.ALTER_JOB
+
+/**
+ * Call <code>public.alter_job</code>.
+ */
+fun ALTER_JOB(
+      configuration: Configuration
+    , jobId: Int?
+    , scheduleInterval: YearToSecond?
+    , maxRuntime: YearToSecond?
+    , maxRetries: Int?
+    , retryPeriod: YearToSecond?
+    , scheduled: Boolean?
+    , config: String?
+    , nextStart: OffsetDateTime?
+    , ifExists: Boolean?
+): Result<AlterJobRecord> = configuration.dsl().selectFrom(me.sumit.uptime.database.generated.tables.AlterJob.ALTER_JOB.call(
+      jobId
+    , scheduleInterval
+    , maxRuntime
+    , maxRetries
+    , retryPeriod
+    , scheduled
+    , config
+    , nextStart
+    , ifExists
+)).fetch()
+
+/**
+ * Get <code>public.alter_job</code> as a table.
+ */
+fun ALTER_JOB(
+      jobId: Int?
+    , scheduleInterval: YearToSecond?
+    , maxRuntime: YearToSecond?
+    , maxRetries: Int?
+    , retryPeriod: YearToSecond?
+    , scheduled: Boolean?
+    , config: String?
+    , nextStart: OffsetDateTime?
+    , ifExists: Boolean?
+): AlterJob = me.sumit.uptime.database.generated.tables.AlterJob.ALTER_JOB.call(
+      jobId
+    , scheduleInterval
+    , maxRuntime
+    , maxRetries
+    , retryPeriod
+    , scheduled
+    , config
+    , nextStart
+    , ifExists
+)
+
+/**
+ * Get <code>public.alter_job</code> as a table.
+ */
+fun ALTER_JOB(
+      jobId: Field<Int?>
+    , scheduleInterval: Field<YearToSecond?>
+    , maxRuntime: Field<YearToSecond?>
+    , maxRetries: Field<Int?>
+    , retryPeriod: Field<YearToSecond?>
+    , scheduled: Field<Boolean?>
+    , config: Field<String?>
+    , nextStart: Field<OffsetDateTime?>
+    , ifExists: Field<Boolean?>
+): AlterJob = me.sumit.uptime.database.generated.tables.AlterJob.ALTER_JOB.call(
+      jobId
+    , scheduleInterval
+    , maxRuntime
+    , maxRetries
+    , retryPeriod
+    , scheduled
+    , config
+    , nextStart
+    , ifExists
+)
+
+/**
+ * The table <code>public.attach_data_node</code>.
+ */
+val ATTACH_DATA_NODE = AttachDataNode.ATTACH_DATA_NODE
+@Deprecated(message = "Unknown data type. Please define an explicit org.jooq.Binding to specify how this type should be handled. Deprecation can be turned off using <deprecationOnUnknownTypes/> in your code generator configuration.")
+fun ATTACH_DATA_NODE(
+      configuration: Configuration
+    , nodeName: String?
+    , hypertable: Any?
+    , ifNotAttached: Boolean?
+    , repartition: Boolean?
+): Result<AttachDataNodeRecord> = configuration.dsl().selectFrom(me.sumit.uptime.database.generated.tables.AttachDataNode.ATTACH_DATA_NODE.call(
+      nodeName
+    , hypertable
+    , ifNotAttached
+    , repartition
+)).fetch()
+@Deprecated(message = "Unknown data type. Please define an explicit org.jooq.Binding to specify how this type should be handled. Deprecation can be turned off using <deprecationOnUnknownTypes/> in your code generator configuration.")
+fun ATTACH_DATA_NODE(
+      nodeName: String?
+    , hypertable: Any?
+    , ifNotAttached: Boolean?
+    , repartition: Boolean?
+): AttachDataNode = me.sumit.uptime.database.generated.tables.AttachDataNode.ATTACH_DATA_NODE.call(
+      nodeName
+    , hypertable
+    , ifNotAttached
+    , repartition
+)
+@Deprecated(message = "Unknown data type. Please define an explicit org.jooq.Binding to specify how this type should be handled. Deprecation can be turned off using <deprecationOnUnknownTypes/> in your code generator configuration.")
+fun ATTACH_DATA_NODE(
+      nodeName: Field<String?>
+    , hypertable: Field<Any?>
+    , ifNotAttached: Field<Boolean?>
+    , repartition: Field<Boolean?>
+): AttachDataNode = me.sumit.uptime.database.generated.tables.AttachDataNode.ATTACH_DATA_NODE.call(
+      nodeName
+    , hypertable
+    , ifNotAttached
+    , repartition
+)
+
+/**
+ * The table <code>public.chunk_compression_stats</code>.
+ */
+val CHUNK_COMPRESSION_STATS = ChunkCompressionStats.CHUNK_COMPRESSION_STATS
+@Deprecated(message = "Unknown data type. Please define an explicit org.jooq.Binding to specify how this type should be handled. Deprecation can be turned off using <deprecationOnUnknownTypes/> in your code generator configuration.")
+fun CHUNK_COMPRESSION_STATS(
+      configuration: Configuration
+    , hypertable: Any?
+): Result<ChunkCompressionStatsRecord> = configuration.dsl().selectFrom(me.sumit.uptime.database.generated.tables.ChunkCompressionStats.CHUNK_COMPRESSION_STATS.call(
+      hypertable
+)).fetch()
+@Deprecated(message = "Unknown data type. Please define an explicit org.jooq.Binding to specify how this type should be handled. Deprecation can be turned off using <deprecationOnUnknownTypes/> in your code generator configuration.")
+fun CHUNK_COMPRESSION_STATS(
+      hypertable: Any?
+): ChunkCompressionStats = me.sumit.uptime.database.generated.tables.ChunkCompressionStats.CHUNK_COMPRESSION_STATS.call(
+      hypertable
+)
+@Deprecated(message = "Unknown data type. Please define an explicit org.jooq.Binding to specify how this type should be handled. Deprecation can be turned off using <deprecationOnUnknownTypes/> in your code generator configuration.")
+fun CHUNK_COMPRESSION_STATS(
+      hypertable: Field<Any?>
+): ChunkCompressionStats = me.sumit.uptime.database.generated.tables.ChunkCompressionStats.CHUNK_COMPRESSION_STATS.call(
+      hypertable
+)
+
+/**
+ * The table <code>public.chunks_detailed_size</code>.
+ */
+val CHUNKS_DETAILED_SIZE = ChunksDetailedSize.CHUNKS_DETAILED_SIZE
+@Deprecated(message = "Unknown data type. Please define an explicit org.jooq.Binding to specify how this type should be handled. Deprecation can be turned off using <deprecationOnUnknownTypes/> in your code generator configuration.")
+fun CHUNKS_DETAILED_SIZE(
+      configuration: Configuration
+    , hypertable: Any?
+): Result<ChunksDetailedSizeRecord> = configuration.dsl().selectFrom(me.sumit.uptime.database.generated.tables.ChunksDetailedSize.CHUNKS_DETAILED_SIZE.call(
+      hypertable
+)).fetch()
+@Deprecated(message = "Unknown data type. Please define an explicit org.jooq.Binding to specify how this type should be handled. Deprecation can be turned off using <deprecationOnUnknownTypes/> in your code generator configuration.")
+fun CHUNKS_DETAILED_SIZE(
+      hypertable: Any?
+): ChunksDetailedSize = me.sumit.uptime.database.generated.tables.ChunksDetailedSize.CHUNKS_DETAILED_SIZE.call(
+      hypertable
+)
+@Deprecated(message = "Unknown data type. Please define an explicit org.jooq.Binding to specify how this type should be handled. Deprecation can be turned off using <deprecationOnUnknownTypes/> in your code generator configuration.")
+fun CHUNKS_DETAILED_SIZE(
+      hypertable: Field<Any?>
+): ChunksDetailedSize = me.sumit.uptime.database.generated.tables.ChunksDetailedSize.CHUNKS_DETAILED_SIZE.call(
+      hypertable
+)
+
+/**
+ * The table <code>public.create_distributed_hypertable</code>.
+ */
+val CREATE_DISTRIBUTED_HYPERTABLE = CreateDistributedHypertable.CREATE_DISTRIBUTED_HYPERTABLE
+@Deprecated(message = "Unknown data type. Please define an explicit org.jooq.Binding to specify how this type should be handled. Deprecation can be turned off using <deprecationOnUnknownTypes/> in your code generator configuration.")
+fun CREATE_DISTRIBUTED_HYPERTABLE(
+      configuration: Configuration
+    , relation: Any?
+    , timeColumnName: String?
+    , partitioningColumn: String?
+    , numberPartitions: Int?
+    , associatedSchemaName: String?
+    , associatedTablePrefix: String?
+    , chunkTimeInterval: Any?
+    , createDefaultIndexes: Boolean?
+    , ifNotExists: Boolean?
+    , partitioningFunc: String?
+    , migrateData: Boolean?
+    , chunkTargetSize: String?
+    , chunkSizingFunc: String?
+    , timePartitioningFunc: String?
+    , replicationFactor: Int?
+    , dataNodes: Array<String?>?
+): Result<CreateDistributedHypertableRecord> = configuration.dsl().selectFrom(me.sumit.uptime.database.generated.tables.CreateDistributedHypertable.CREATE_DISTRIBUTED_HYPERTABLE.call(
+      relation
+    , timeColumnName
+    , partitioningColumn
+    , numberPartitions
+    , associatedSchemaName
+    , associatedTablePrefix
+    , chunkTimeInterval
+    , createDefaultIndexes
+    , ifNotExists
+    , partitioningFunc
+    , migrateData
+    , chunkTargetSize
+    , chunkSizingFunc
+    , timePartitioningFunc
+    , replicationFactor
+    , dataNodes
+)).fetch()
+@Deprecated(message = "Unknown data type. Please define an explicit org.jooq.Binding to specify how this type should be handled. Deprecation can be turned off using <deprecationOnUnknownTypes/> in your code generator configuration.")
+fun CREATE_DISTRIBUTED_HYPERTABLE(
+      relation: Any?
+    , timeColumnName: String?
+    , partitioningColumn: String?
+    , numberPartitions: Int?
+    , associatedSchemaName: String?
+    , associatedTablePrefix: String?
+    , chunkTimeInterval: Any?
+    , createDefaultIndexes: Boolean?
+    , ifNotExists: Boolean?
+    , partitioningFunc: String?
+    , migrateData: Boolean?
+    , chunkTargetSize: String?
+    , chunkSizingFunc: String?
+    , timePartitioningFunc: String?
+    , replicationFactor: Int?
+    , dataNodes: Array<String?>?
+): CreateDistributedHypertable = me.sumit.uptime.database.generated.tables.CreateDistributedHypertable.CREATE_DISTRIBUTED_HYPERTABLE.call(
+      relation
+    , timeColumnName
+    , partitioningColumn
+    , numberPartitions
+    , associatedSchemaName
+    , associatedTablePrefix
+    , chunkTimeInterval
+    , createDefaultIndexes
+    , ifNotExists
+    , partitioningFunc
+    , migrateData
+    , chunkTargetSize
+    , chunkSizingFunc
+    , timePartitioningFunc
+    , replicationFactor
+    , dataNodes
+)
+@Deprecated(message = "Unknown data type. Please define an explicit org.jooq.Binding to specify how this type should be handled. Deprecation can be turned off using <deprecationOnUnknownTypes/> in your code generator configuration.")
+fun CREATE_DISTRIBUTED_HYPERTABLE(
+      relation: Field<Any?>
+    , timeColumnName: Field<String?>
+    , partitioningColumn: Field<String?>
+    , numberPartitions: Field<Int?>
+    , associatedSchemaName: Field<String?>
+    , associatedTablePrefix: Field<String?>
+    , chunkTimeInterval: Field<Any?>
+    , createDefaultIndexes: Field<Boolean?>
+    , ifNotExists: Field<Boolean?>
+    , partitioningFunc: Field<String?>
+    , migrateData: Field<Boolean?>
+    , chunkTargetSize: Field<String?>
+    , chunkSizingFunc: Field<String?>
+    , timePartitioningFunc: Field<String?>
+    , replicationFactor: Field<Int?>
+    , dataNodes: Field<Array<String?>?>
+): CreateDistributedHypertable = me.sumit.uptime.database.generated.tables.CreateDistributedHypertable.CREATE_DISTRIBUTED_HYPERTABLE.call(
+      relation
+    , timeColumnName
+    , partitioningColumn
+    , numberPartitions
+    , associatedSchemaName
+    , associatedTablePrefix
+    , chunkTimeInterval
+    , createDefaultIndexes
+    , ifNotExists
+    , partitioningFunc
+    , migrateData
+    , chunkTargetSize
+    , chunkSizingFunc
+    , timePartitioningFunc
+    , replicationFactor
+    , dataNodes
+)
+
+/**
+ * The table <code>public.create_distributed_restore_point</code>.
+ */
+val CREATE_DISTRIBUTED_RESTORE_POINT = CreateDistributedRestorePoint.CREATE_DISTRIBUTED_RESTORE_POINT
+
+/**
+ * Call <code>public.create_distributed_restore_point</code>.
+ */
+fun CREATE_DISTRIBUTED_RESTORE_POINT(
+      configuration: Configuration
+    , name: String?
+): Result<CreateDistributedRestorePointRecord> = configuration.dsl().selectFrom(me.sumit.uptime.database.generated.tables.CreateDistributedRestorePoint.CREATE_DISTRIBUTED_RESTORE_POINT.call(
+      name
+)).fetch()
+
+/**
+ * Get <code>public.create_distributed_restore_point</code> as a table.
+ */
+fun CREATE_DISTRIBUTED_RESTORE_POINT(
+      name: String?
+): CreateDistributedRestorePoint = me.sumit.uptime.database.generated.tables.CreateDistributedRestorePoint.CREATE_DISTRIBUTED_RESTORE_POINT.call(
+      name
+)
+
+/**
+ * Get <code>public.create_distributed_restore_point</code> as a table.
+ */
+fun CREATE_DISTRIBUTED_RESTORE_POINT(
+      name: Field<String?>
+): CreateDistributedRestorePoint = me.sumit.uptime.database.generated.tables.CreateDistributedRestorePoint.CREATE_DISTRIBUTED_RESTORE_POINT.call(
+      name
+)
+
+/**
+ * The table <code>public.create_hypertable</code>.
+ */
+val CREATE_HYPERTABLE = CreateHypertable.CREATE_HYPERTABLE
+@Deprecated(message = "Unknown data type. Please define an explicit org.jooq.Binding to specify how this type should be handled. Deprecation can be turned off using <deprecationOnUnknownTypes/> in your code generator configuration.")
+fun CREATE_HYPERTABLE(
+      configuration: Configuration
+    , relation: Any?
+    , timeColumnName: String?
+    , partitioningColumn: String?
+    , numberPartitions: Int?
+    , associatedSchemaName: String?
+    , associatedTablePrefix: String?
+    , chunkTimeInterval: Any?
+    , createDefaultIndexes: Boolean?
+    , ifNotExists: Boolean?
+    , partitioningFunc: String?
+    , migrateData: Boolean?
+    , chunkTargetSize: String?
+    , chunkSizingFunc: String?
+    , timePartitioningFunc: String?
+    , replicationFactor: Int?
+    , dataNodes: Array<String?>?
+): Result<CreateHypertableRecord> = configuration.dsl().selectFrom(me.sumit.uptime.database.generated.tables.CreateHypertable.CREATE_HYPERTABLE.call(
+      relation
+    , timeColumnName
+    , partitioningColumn
+    , numberPartitions
+    , associatedSchemaName
+    , associatedTablePrefix
+    , chunkTimeInterval
+    , createDefaultIndexes
+    , ifNotExists
+    , partitioningFunc
+    , migrateData
+    , chunkTargetSize
+    , chunkSizingFunc
+    , timePartitioningFunc
+    , replicationFactor
+    , dataNodes
+)).fetch()
+@Deprecated(message = "Unknown data type. Please define an explicit org.jooq.Binding to specify how this type should be handled. Deprecation can be turned off using <deprecationOnUnknownTypes/> in your code generator configuration.")
+fun CREATE_HYPERTABLE(
+      relation: Any?
+    , timeColumnName: String?
+    , partitioningColumn: String?
+    , numberPartitions: Int?
+    , associatedSchemaName: String?
+    , associatedTablePrefix: String?
+    , chunkTimeInterval: Any?
+    , createDefaultIndexes: Boolean?
+    , ifNotExists: Boolean?
+    , partitioningFunc: String?
+    , migrateData: Boolean?
+    , chunkTargetSize: String?
+    , chunkSizingFunc: String?
+    , timePartitioningFunc: String?
+    , replicationFactor: Int?
+    , dataNodes: Array<String?>?
+): CreateHypertable = me.sumit.uptime.database.generated.tables.CreateHypertable.CREATE_HYPERTABLE.call(
+      relation
+    , timeColumnName
+    , partitioningColumn
+    , numberPartitions
+    , associatedSchemaName
+    , associatedTablePrefix
+    , chunkTimeInterval
+    , createDefaultIndexes
+    , ifNotExists
+    , partitioningFunc
+    , migrateData
+    , chunkTargetSize
+    , chunkSizingFunc
+    , timePartitioningFunc
+    , replicationFactor
+    , dataNodes
+)
+@Deprecated(message = "Unknown data type. Please define an explicit org.jooq.Binding to specify how this type should be handled. Deprecation can be turned off using <deprecationOnUnknownTypes/> in your code generator configuration.")
+fun CREATE_HYPERTABLE(
+      relation: Field<Any?>
+    , timeColumnName: Field<String?>
+    , partitioningColumn: Field<String?>
+    , numberPartitions: Field<Int?>
+    , associatedSchemaName: Field<String?>
+    , associatedTablePrefix: Field<String?>
+    , chunkTimeInterval: Field<Any?>
+    , createDefaultIndexes: Field<Boolean?>
+    , ifNotExists: Field<Boolean?>
+    , partitioningFunc: Field<String?>
+    , migrateData: Field<Boolean?>
+    , chunkTargetSize: Field<String?>
+    , chunkSizingFunc: Field<String?>
+    , timePartitioningFunc: Field<String?>
+    , replicationFactor: Field<Int?>
+    , dataNodes: Field<Array<String?>?>
+): CreateHypertable = me.sumit.uptime.database.generated.tables.CreateHypertable.CREATE_HYPERTABLE.call(
+      relation
+    , timeColumnName
+    , partitioningColumn
+    , numberPartitions
+    , associatedSchemaName
+    , associatedTablePrefix
+    , chunkTimeInterval
+    , createDefaultIndexes
+    , ifNotExists
+    , partitioningFunc
+    , migrateData
+    , chunkTargetSize
+    , chunkSizingFunc
+    , timePartitioningFunc
+    , replicationFactor
+    , dataNodes
+)
+
+/**
+ * The table <code>public.drop_chunks</code>.
+ */
+val DROP_CHUNKS = DropChunks.DROP_CHUNKS
+@Deprecated(message = "Unknown data type. Please define an explicit org.jooq.Binding to specify how this type should be handled. Deprecation can be turned off using <deprecationOnUnknownTypes/> in your code generator configuration.")
+fun DROP_CHUNKS(
+      configuration: Configuration
+    , relation: Any?
+    , olderThan: Any?
+    , newerThan: Any?
+    , verbose: Boolean?
+): Result<DropChunksRecord> = configuration.dsl().selectFrom(me.sumit.uptime.database.generated.tables.DropChunks.DROP_CHUNKS.call(
+      relation
+    , olderThan
+    , newerThan
+    , verbose
+)).fetch()
+@Deprecated(message = "Unknown data type. Please define an explicit org.jooq.Binding to specify how this type should be handled. Deprecation can be turned off using <deprecationOnUnknownTypes/> in your code generator configuration.")
+fun DROP_CHUNKS(
+      relation: Any?
+    , olderThan: Any?
+    , newerThan: Any?
+    , verbose: Boolean?
+): DropChunks = me.sumit.uptime.database.generated.tables.DropChunks.DROP_CHUNKS.call(
+      relation
+    , olderThan
+    , newerThan
+    , verbose
+)
+@Deprecated(message = "Unknown data type. Please define an explicit org.jooq.Binding to specify how this type should be handled. Deprecation can be turned off using <deprecationOnUnknownTypes/> in your code generator configuration.")
+fun DROP_CHUNKS(
+      relation: Field<Any?>
+    , olderThan: Field<Any?>
+    , newerThan: Field<Any?>
+    , verbose: Field<Boolean?>
+): DropChunks = me.sumit.uptime.database.generated.tables.DropChunks.DROP_CHUNKS.call(
+      relation
+    , olderThan
+    , newerThan
+    , verbose
+)
+
+/**
+ * The table <code>public.hypertable_compression_stats</code>.
+ */
+val HYPERTABLE_COMPRESSION_STATS = HypertableCompressionStats.HYPERTABLE_COMPRESSION_STATS
+@Deprecated(message = "Unknown data type. Please define an explicit org.jooq.Binding to specify how this type should be handled. Deprecation can be turned off using <deprecationOnUnknownTypes/> in your code generator configuration.")
+fun HYPERTABLE_COMPRESSION_STATS(
+      configuration: Configuration
+    , hypertable: Any?
+): Result<HypertableCompressionStatsRecord> = configuration.dsl().selectFrom(me.sumit.uptime.database.generated.tables.HypertableCompressionStats.HYPERTABLE_COMPRESSION_STATS.call(
+      hypertable
+)).fetch()
+@Deprecated(message = "Unknown data type. Please define an explicit org.jooq.Binding to specify how this type should be handled. Deprecation can be turned off using <deprecationOnUnknownTypes/> in your code generator configuration.")
+fun HYPERTABLE_COMPRESSION_STATS(
+      hypertable: Any?
+): HypertableCompressionStats = me.sumit.uptime.database.generated.tables.HypertableCompressionStats.HYPERTABLE_COMPRESSION_STATS.call(
+      hypertable
+)
+@Deprecated(message = "Unknown data type. Please define an explicit org.jooq.Binding to specify how this type should be handled. Deprecation can be turned off using <deprecationOnUnknownTypes/> in your code generator configuration.")
+fun HYPERTABLE_COMPRESSION_STATS(
+      hypertable: Field<Any?>
+): HypertableCompressionStats = me.sumit.uptime.database.generated.tables.HypertableCompressionStats.HYPERTABLE_COMPRESSION_STATS.call(
+      hypertable
+)
+
+/**
+ * The table <code>public.hypertable_detailed_size</code>.
+ */
+val HYPERTABLE_DETAILED_SIZE = HypertableDetailedSize.HYPERTABLE_DETAILED_SIZE
+@Deprecated(message = "Unknown data type. Please define an explicit org.jooq.Binding to specify how this type should be handled. Deprecation can be turned off using <deprecationOnUnknownTypes/> in your code generator configuration.")
+fun HYPERTABLE_DETAILED_SIZE(
+      configuration: Configuration
+    , hypertable: Any?
+): Result<HypertableDetailedSizeRecord> = configuration.dsl().selectFrom(me.sumit.uptime.database.generated.tables.HypertableDetailedSize.HYPERTABLE_DETAILED_SIZE.call(
+      hypertable
+)).fetch()
+@Deprecated(message = "Unknown data type. Please define an explicit org.jooq.Binding to specify how this type should be handled. Deprecation can be turned off using <deprecationOnUnknownTypes/> in your code generator configuration.")
+fun HYPERTABLE_DETAILED_SIZE(
+      hypertable: Any?
+): HypertableDetailedSize = me.sumit.uptime.database.generated.tables.HypertableDetailedSize.HYPERTABLE_DETAILED_SIZE.call(
+      hypertable
+)
+@Deprecated(message = "Unknown data type. Please define an explicit org.jooq.Binding to specify how this type should be handled. Deprecation can be turned off using <deprecationOnUnknownTypes/> in your code generator configuration.")
+fun HYPERTABLE_DETAILED_SIZE(
+      hypertable: Field<Any?>
+): HypertableDetailedSize = me.sumit.uptime.database.generated.tables.HypertableDetailedSize.HYPERTABLE_DETAILED_SIZE.call(
+      hypertable
+)
 
 /**
  * The table <code>public.monitor</code>.
@@ -18,3 +698,63 @@ val MONITOR = Monitor.MONITOR
  * The table <code>public.monitor_types</code>.
  */
 val MONITOR_TYPES = MonitorTypes.MONITOR_TYPES
+
+/**
+ * The table <code>public.show_chunks</code>.
+ */
+val SHOW_CHUNKS = ShowChunks.SHOW_CHUNKS
+@Deprecated(message = "Unknown data type. Please define an explicit org.jooq.Binding to specify how this type should be handled. Deprecation can be turned off using <deprecationOnUnknownTypes/> in your code generator configuration.")
+fun SHOW_CHUNKS(
+      configuration: Configuration
+    , relation: Any?
+    , olderThan: Any?
+    , newerThan: Any?
+): Result<ShowChunksRecord> = configuration.dsl().selectFrom(me.sumit.uptime.database.generated.tables.ShowChunks.SHOW_CHUNKS.call(
+      relation
+    , olderThan
+    , newerThan
+)).fetch()
+@Deprecated(message = "Unknown data type. Please define an explicit org.jooq.Binding to specify how this type should be handled. Deprecation can be turned off using <deprecationOnUnknownTypes/> in your code generator configuration.")
+fun SHOW_CHUNKS(
+      relation: Any?
+    , olderThan: Any?
+    , newerThan: Any?
+): ShowChunks = me.sumit.uptime.database.generated.tables.ShowChunks.SHOW_CHUNKS.call(
+      relation
+    , olderThan
+    , newerThan
+)
+@Deprecated(message = "Unknown data type. Please define an explicit org.jooq.Binding to specify how this type should be handled. Deprecation can be turned off using <deprecationOnUnknownTypes/> in your code generator configuration.")
+fun SHOW_CHUNKS(
+      relation: Field<Any?>
+    , olderThan: Field<Any?>
+    , newerThan: Field<Any?>
+): ShowChunks = me.sumit.uptime.database.generated.tables.ShowChunks.SHOW_CHUNKS.call(
+      relation
+    , olderThan
+    , newerThan
+)
+
+/**
+ * The table <code>public.show_tablespaces</code>.
+ */
+val SHOW_TABLESPACES = ShowTablespaces.SHOW_TABLESPACES
+@Deprecated(message = "Unknown data type. Please define an explicit org.jooq.Binding to specify how this type should be handled. Deprecation can be turned off using <deprecationOnUnknownTypes/> in your code generator configuration.")
+fun SHOW_TABLESPACES(
+      configuration: Configuration
+    , hypertable: Any?
+): Result<ShowTablespacesRecord> = configuration.dsl().selectFrom(me.sumit.uptime.database.generated.tables.ShowTablespaces.SHOW_TABLESPACES.call(
+      hypertable
+)).fetch()
+@Deprecated(message = "Unknown data type. Please define an explicit org.jooq.Binding to specify how this type should be handled. Deprecation can be turned off using <deprecationOnUnknownTypes/> in your code generator configuration.")
+fun SHOW_TABLESPACES(
+      hypertable: Any?
+): ShowTablespaces = me.sumit.uptime.database.generated.tables.ShowTablespaces.SHOW_TABLESPACES.call(
+      hypertable
+)
+@Deprecated(message = "Unknown data type. Please define an explicit org.jooq.Binding to specify how this type should be handled. Deprecation can be turned off using <deprecationOnUnknownTypes/> in your code generator configuration.")
+fun SHOW_TABLESPACES(
+      hypertable: Field<Any?>
+): ShowTablespaces = me.sumit.uptime.database.generated.tables.ShowTablespaces.SHOW_TABLESPACES.call(
+      hypertable
+)

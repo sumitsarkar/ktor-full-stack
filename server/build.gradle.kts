@@ -12,7 +12,7 @@ plugins {
 group = "me.sumit"
 version = "0.0.1"
 application {
-    mainClass.set("me.sumit.ApplicationKt")
+    mainClass.set("io.ktor.server.netty.EngineMain")
 }
 
 repositories {

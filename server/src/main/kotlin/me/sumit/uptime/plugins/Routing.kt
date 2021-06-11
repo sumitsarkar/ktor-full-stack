@@ -8,8 +8,10 @@ import io.ktor.http.content.*
 import io.ktor.application.*
 import io.ktor.response.*
 import io.ktor.request.*
+import me.sumit.uptime.ModuleContext
+import org.jooq.DSLContext
 
-fun Application.configureRouting() {
+fun Application.configureRouting(moduleContext: ModuleContext) {
     install(AutoHeadResponse)
     install(DoubleReceive)
     install(Locations) {
